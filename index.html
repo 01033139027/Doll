@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doll | JS Tools</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        header {
+            background: #111;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        nav a {
+            color: #ccc;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        h2 {
+            border-left: 4px solid #007acc;
+            padding-left: 0.5rem;
+            color: #007acc;
+        }
+        
+        .tool {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        input,
+        button {
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            background: #007acc;
+            color: white;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        button:hover {
+            background: #005fa3;
+        }
+        
+        .result {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Doll.js.org</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">GitHub</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="tool">
+            <h2>🎲 Random Number Generator</h2>
+            <p>Generate a random number between 1 and 100.</p>
+            <button onclick="generateRandom()">Generate</button>
+            <div class="result" id="randomResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>✖️ Square a Number</h2>
+            <p>Enter a number to see its square.</p>
+            <input type="number" id="squareInput" placeholder="Enter a number" />
+            <button onclick="squareNumber()">Calculate Square</button>
+            <div class="result" id="squareResult"></div>
+        </div>
+
+        <div class="tool">
+            <h2>🔗 URL Encoder</h2>
+            <p>Convert any text into a safe URL format.</p>
+            <input type="text" id="urlInput" placeholder="Enter text to encode" />
+            <button onclick="encodeURL()">Encode</button>
+            <div class="result" id="urlResult"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <a href="https://github.com/lansr1234567ham" target="_blank" style="color:#ddd;">View Source</a>
+    </footer>
+
+    <script>
+        function generateRandom() {
+            const result = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("randomResult").textContent = "Result: " + result;
+        }
+
+        function squareNumber() {
+            const input = document.getElementById("squareInput").value;
+            if (input === "") return alert("Please enter a number!");
+            const result = Math.pow(Number(input), 2);
+            document.getElementById("squareResult").textContent = "Square: " + result;
+        }
+
+        function encodeURL() {
+            const input = document.getElementById("urlInput").value;
+            if (input === "") return alert("Please enter some text!");
+            const result = encodeURIComponent(input);
+            document.getElementById("urlResult").textContent = "Encoded: " + result;
+        }
+    </script>
+
+</body>
+
+</html>
